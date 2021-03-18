@@ -1,3 +1,4 @@
 
-# NAslov!!!
-some  text
+# Naslov!!!
+
+izbrisao sam jednu liniju i dodao ovu u red 4. Ovo je kucano na webu, a ne lokalno.
