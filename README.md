@@ -9,10 +9,23 @@ Kivy version used: Kivy 2.0.0
 
 ## Game concept
 ### Players
-Minimal 4 players required and supports up to 10 players. Player number must be an even number of players and players are divided in teams of two players.
+Minimum of 4 players required, supports up to 10 players. Number of players in a team must be even, which means that up to 5 teams of 2 players can play the game.
+
 ### Random word
-A random number is generated from a word list.
+A random word is generated from a word list.
 ### Game play
-Player 1 is explaing a random word to player 2. Whenever the team gets a word right, the explaining player has to klick correct and the next word commes out. The team needs to guess as manny words as possible within a minut. For correct answers you get a +1 pooint, for skipped words ypu get -1 point. If you use a joker you can skip a word without getting a -1 point.
+Player 1 explains a random word to player 2. Whenever the team gets a word right, the player explaining a word types in “correct” and the next word comes out. The team needs to guess as many words as possible within a minute. Teams earn +1 point for each correctly guessed word and lose -1 point by skipping unfamiliar words. If teams use Joker, they can skip a word without losing a point.
+
 ### Winner
-After each round the winner is evaluated. Winner is the team which first winns 10 points.
+After each round the winner is evaluated. Winner is the team which first wins 10 points.
+
+## TO DO
+Exit round when time runs out.
+## DATA SCIENCE & AI
+Collect data:
+- based on names, 
+- time when the game is palyed
+- collect time spent on guessing a specific word
+- create AI to make different lists of words bases on word difficulty level
+
+# please contact me if you wnat to colaborate
