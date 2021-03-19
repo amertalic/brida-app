@@ -1,3 +1,0 @@
-# comand test
-
-This file is beeing updloaded on github from comandline.
