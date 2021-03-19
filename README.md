@@ -4,6 +4,7 @@ Brida app is a digital version of the popular board game party alias.
 
 ## Python and Kivy
 Python version used: Python 3.6.9
+
 Kivy version used: Kivy 2.0.0
 
 ## Game concept
