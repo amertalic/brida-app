@@ -1,0 +1,558 @@
+WindowManager:
+    WelcomeWindow:
+    InpPlayerWindow:
+    ManualWindow:
+    GameplayWindow:
+
+<ManualWindow>:
+    name: 'manual'
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+        padding: 5
+        spacing: 10
+        GridLayout: #1
+            padding: 5
+            spacing: 5
+            rows:5
+            cols:1
+            Label: #1
+                id: label_0
+                text: "#####   Game Play   #####\n\nCreate Teams\nThe players form teams of at least two people. You can make random teams or type them in order where player 1 plays with player 2 amd player 3 plays with player 4 and so on. You can chose a number of players, but the number of players must be an even number.\nWhen settled press start game.\n\nThe explaining player is handing the phone/app. press start to run teh timer and get a random word to be explained.\nWhenever the team gets a word right, the explaining player has to klick correct and the next word commes out.\nThe words have to be guessed completely right. If the word is 'run', 'running' is not accepted. If the word is 'suspenders, 'suspender' is not enough.\nIf the explaining player is still explaining a word when the time runs out. For correct answers you get a +1 pooint, for skipped words ypu get -1 point. If you use a joker you can skipa word without getting a -1 point."
+                text_size: self.width, None
+                font_size:9
+                size_hint: 1, None
+                height: self.texture_size[1]
+                background_color: ( 0 , 0 , 0 ,1 )
+                canvas.before:
+                    Color:
+                        rgba: self.background_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+            Label:
+                id:label_01
+                text:"You are not allowed to use any part of the word when you're explaining, nor a word that's partly the same.\nWith compounds the guesser usually gets half of the word right quickly. E.g. if the word you're explaining is 'dogcatcher', the guesser might say 'animal catcher'.\nOnce the guesser gets half of the compound right (in this case the word 'catcher'), the explaining player may use it to explain the rest of the word. If the guesser says any part of the compound, it can be used by the explainer. These rules also apply to phrases consisting of two or more words.\nYou can use opposites. The easiest way to explain the word 'big' would be to say 'the opposite of small'\nEnd of the Game\nThe game ends when the first team reaches the set number of winning points. This team is delcared the winner of the game."
+                text_size: self.width, None
+                font_size:9
+                size_hint: 1, None
+                height: self.texture_size[1]
+                background_color: ( 0 , 0 , 0 ,1 )
+                canvas.before:
+                    Color:
+                        rgba: self.background_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+
+            Button:
+                id: but_1
+                text: 'Back to welcome screen'
+                font_size: 12
+                bold: True
+                halign: 'center'
+                size: 200,50
+                size_hint: root.width, None
+                on_release:
+                    app.root.current = 'welcome_screen'
+                    root.manager.transition.direction ='right'
+
+<WelcomeWindow>:
+    name: 'welcome_screen'
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+        padding: 10
+        spacing: 10
+        GridLayout: #1
+            padding: 40
+            spacing: 20
+            rows:5
+            cols:1
+            Label: #1
+                id: label_1
+                text: 'Welcome to Brida\nPARTY ALIAS APP'
+                bold: True
+                font_size: 12
+                background_color: ( 0 , 0 , 0 ,1 )
+                halign: 'center'
+                valign: 'middle'
+                canvas.before:
+                    Color:
+                        rgba: self.background_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+
+            Button:
+                id: but_1
+                text: 'Input players'
+                font_size: 12
+                bold: True
+                halign: 'center'
+                on_release:
+                    app.root.current = 'input_player'
+                    root.manager.transition.direction ='left'
+
+
+            Button:
+                id: but_2
+                text: 'Game manual'
+                font_size: 12
+                bold: True
+                halign: 'center'
+                on_release:
+                    app.root.current = 'manual'
+                    root.manager.transition.direction ='left'
+
+
+            Button:
+                id: but_3
+                text: 'Play'
+                font_size: 12
+                bold: True
+                halign: 'center'
+                on_release:
+                    app.root.current = 'game_play'
+                    root.manager.transition.direction ='left'
+
+            Button:
+                id: but_4
+                text: 'Exit'
+                font_size: 12
+                bold: True
+                halign: 'center'
+<InpPlayerWindow>:
+    id: input_player
+    name: 'input_player'
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+        padding: 10
+        spacing: 10
+        GridLayout: #1
+            padding: 2.5
+            spacing: 0
+            rows:2
+            size: root.width, root.height
+            GridLayout: #1
+                padding: 2.5
+                spacing: 0
+                rows:10
+                size: root.width, root.height
+                Label: #1
+                    text: 'TEAM 1'
+                    bold: True
+                    color: ( 0 , 0 , 0 ,1 )
+                    font_size: 10
+                    size: 200,15
+                    size_hint: root.width, None
+                    background_color: ( 0 , 0 , 0 ,0 )
+                    canvas.before:
+                        Color:
+                            rgba: self.background_color
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                GridLayout: #1
+                    padding: 2.5
+                    spacing: 5
+                    cols:2
+                    size: root.width, root.height
+                    TextInput:
+                        id: input_pl1
+                        hint_text:'Enter player 1'
+                        #on_text: app.process()
+                        bold: True
+                        font_size: 12
+                        multiline: False
+                        write_tab: False
+                        halign: 'center'
+
+                    TextInput:
+                        id: input_pl2
+                        hint_text:'Enter player 2'
+                        #on_text: app.process()
+                        bold: True
+                        font_size: 12
+                        multiline: False
+                        halign: 'center'
+                        valign: 'middle'
+
+                Label: #1
+                    text: 'TEAM 2'
+                    bold: True
+                    color: ( 0 , 0 , 0 ,1 )
+                    font_size: 10
+                    size: 200,15
+                    size_hint: root.width, None
+                    background_color: ( 0 , 0 , 0 ,0 )
+                    canvas.before:
+                        Color:
+                            rgba: self.background_color
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                GridLayout: #1
+                    padding: 2.5
+                    spacing: 5
+                    cols:2
+                    size: root.width, root.height
+                    TextInput:
+                        id: input_pl3
+                        hint_text:'Enter player 3'
+                        #on_text: app.process()
+                        bold: True
+                        font_size: 12
+                        multiline: False
+                        halign: 'center'
+                        valign: 'middle'
+                    TextInput:
+                        id: input_pl4
+                        hint_text:'Enter player 4'
+                        #on_text: app.process()
+                        bold: True
+                        font_size: 12
+                        multiline: False
+                        halign: 'center'
+                        valign: 'middle'
+
+                Label: #1
+                    text: 'TEAM 3'
+                    bold: True
+                    color: ( 0 , 0 , 0 ,1 )
+                    font_size: 10
+                    size: 200,15
+                    size_hint: root.width, None
+                    background_color: ( 0 , 0 , 0 ,0 )
+                    canvas.before:
+                        Color:
+                            rgba: self.background_color
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                GridLayout: #1
+                    padding: 2.5
+                    spacing: 5
+                    cols:2
+                    size: root.width, root.height
+                    TextInput:
+                        id: input_pl5
+                        hint_text:'Enter player 5'
+                        #on_text: app.process()
+                        bold: True
+                        font_size: 12
+                        multiline: False
+                        halign: 'center'
+                        valign: 'middle'
+                    TextInput:
+                        id: input_pl6
+                        hint_text:'Enter player 6'
+                        #on_text: app.process()
+                        bold: True
+                        font_size: 12
+                        multiline: False
+                        halign: 'center'
+                        valign: 'middle'
+                Label: #1
+                    text: 'TEAM 4'
+                    bold: True
+                    color: ( 0 , 0 , 0 ,1 )
+                    font_size: 10
+                    size: 200,15
+                    size_hint: root.width, None
+                    background_color: ( 0 , 0 , 0 ,0 )
+                    canvas.before:
+                        Color:
+                            rgba: self.background_color
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                GridLayout: #1
+                    padding: 2.5
+                    spacing: 5
+                    cols:2
+                    size: root.width, root.height
+                    TextInput:
+                        id: input_pl7
+                        hint_text:'Enter player 7'
+                        #on_text: app.process()
+                        bold: True
+                        font_size: 12
+                        multiline: False
+                        halign: 'center'
+                        valign: 'middle'
+                    TextInput:
+                        id: input_pl8
+                        hint_text:'Enter player 8'
+                        #on_text: app.process()
+                        bold: True
+                        font_size: 12
+                        multiline: False
+                        halign: 'center'
+                        valign: 'middle'
+                Label: #1
+                    text: 'TEAM 5'
+                    bold: True
+                    color: ( 0 , 0 , 0 ,1 )
+                    font_size: 10
+                    size: 200,15
+                    size_hint: root.width, None
+                    background_color: ( 0 , 0 , 0 ,0 )
+                    canvas.before:
+                        Color:
+                            rgba: self.background_color
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                GridLayout: #1
+                    padding: 2.5
+                    spacing: 5
+                    cols:2
+                    size: root.width, root.height
+                    TextInput:
+                        id: input_pl9
+                        hint_text:'Enter player 9'
+                        #on_text: app.process()
+                        bold: True
+                        font_size: 12
+                        multiline: False
+                        halign: 'center'
+                        valign: 'middle'
+                    TextInput:
+                        id: input_pl10
+                        hint_text:'Enter player 10'
+                        #on_text: app.process()
+                        bold: True
+                        font_size: 12
+                        multiline: False
+                        write_tab: False
+                        halign: 'center'
+                        valign: 'middle'
+            GridLayout:#3
+                padding: 2.5
+                spacing: 2.5
+                rows:5
+                Label: #1
+                    id: pl_inp_error_lbl
+                    text: 'Enter 4, 6, 8 or 10 players'
+                    bold: True
+                    color: ( 0 , 0 , 0 ,1 )
+                    font_size: 10
+                    size: 200,30
+                    size_hint: root.width, None
+                    background_color: ( 0 , 0 , 0 ,0.0 )
+                    halign: 'center'
+                    canvas.before:
+                        Color:
+                            rgba: self.background_color
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+
+                Button:
+                    id: but_1
+                    text: 'Submit'
+                    font_size: 12
+                    bold: True
+                    halign: 'center'
+                    on_press: root.check_and_submit_players()
+
+
+
+                Button:
+                    id: but_2
+                    text: 'Randomize'
+                    font_size: 12
+                    bold: True
+                    halign: 'center'
+                    on_press: root.check_and_submit_players()
+                    on_release: root.randomize_players()
+
+                Button:
+                    id: but_4
+                    text: 'test button - automaticv input players'
+                    font_size: 12
+                    bold: True
+                    halign: 'center'
+                    on_release: root.automate_palyer_input()
+
+                Button:
+                    id: but_4
+                    text: 'Back'
+                    font_size: 12
+                    bold: True
+                    halign: 'center'
+                    on_release:
+                        app.root.current = 'welcome_screen'
+                        root.manager.transition.direction ='right'
+<GameplayWindow>:
+    name: 'game_play'
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+        padding: 10
+        spacing: 10
+        GridLayout: #1
+            padding: 2.5
+            spacing: 0
+            cols:1
+            rows:3
+            size: root.width, root.height
+            Button:
+                text: 'Exit game'
+                size: 200,20
+                size_hint: root.width, None
+                #on_press: # reset everythong to default
+                on_release:
+                    app.root.current = 'welcome_screen'
+                    root.manager.transition.direction ='right'
+            GridLayout: #1
+                padding: 2.5
+                spacing: 0
+                cols:2
+                size: root.width, root.height
+                Label: #1
+                    id: label_points
+                    text: ''
+                    bold: True
+                    font_size: 12
+                    background_color: ( 0 , 0 , 0 ,1 )
+                    valign: 'middle'
+                    halign: 'center'
+                    canvas.before:
+                        Color:
+                            rgba: self.background_color
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+            GridLayout: #1
+                padding: 2.5
+                spacing: 5
+                cols:2
+                size: root.width, root.height
+                Label: #1
+                    id: label_1
+                    text: ''
+                    bold: True
+                    font_size: 12
+                    background_color: ( 0 , 0 , 0 ,1 )
+                    canvas.before:
+                        Color:
+                            rgba: self.background_color
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                Label: #1
+                    id: label_2
+                    text: ''
+                    bold: True
+                    font_size: 12
+                    background_color: ( 0 , 0 , 0 ,1 )
+                    canvas.before:
+                        Color:
+                            rgba: self.background_color
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+
+
+        GridLayout:#2
+            padding: 5
+            spacing: 2.5
+            cols:1 #CHANGE TO 2 IF LINING LEFT RIGHT
+            #sets size Labels, Buttons etc. to fill window
+            size: root.width, root.height
+            Label:
+                id: label_3
+                text: 'word'
+                bold: True
+
+                background_color: ( 0 , 0 , 0 ,1 )
+                canvas.before:
+                    Color:
+                        rgba: self.background_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+
+
+            Label:
+                text: str(round(root.number))
+                font_size: 12
+                bold: True
+                background_color: ( 0 , 0 , 0 ,1 )
+                canvas.before:
+                    Color:
+                        rgba: self.background_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+            Button:
+                text: 'Stop timer'
+                on_press: root.stop_timer()
+                on_press: root.number = root.sec60
+
+            Button:
+                text: 'test button'
+                #on_press: root.grab_player_list()
+
+                #on_press: root.call_check_winner()
+
+        GridLayout:#3
+            padding: 2.5
+            spacing: 2.5
+            cols:1
+            rows:2
+            GridLayout:#3
+                padding: 2.5
+                spacing: 2.5
+                cols:1
+                rows:2
+                Button:
+                    id: but_3
+                    text: 'START ROUND\n(dsiplay Players & points)'
+                    bold: True
+                    font_size: 12
+                    halign: 'center'
+                    on_press: root.st_round()
+                    on_press: root.number = root.sec60
+                    on_press: root.stop_timer()
+                Button:
+                    id: but_3
+                    text: 'PLAY\n(get wor & start timer)'
+                    font_size: 12
+                    bold: True
+                    halign: 'center'
+                    on_press: root.st_play_round()
+
+            GridLayout:#3
+                padding: 2.5
+                spacing: 2.5
+                cols:3
+                rows:1
+
+                Button:
+                    id: but_1
+                    text: 'Joker'
+                    font_size: 12
+                    bold: True
+                    halign: 'center'
+                    on_press: root.joker()
+                    on_release: root.joker_button()
+
+                Button:
+                    id: but_2
+                    text: 'NEXT\nWORD'
+                    font_size: 12
+                    bold: True
+                    halign: 'center'
+                    on_press: root.next_word()
+
+                Button:
+                    id: but_4
+                    text: 'CORRECT'
+                    font_size: 12
+                    bold: True
+                    halign: 'center'
+                    on_press: root.correct()
