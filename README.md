@@ -22,7 +22,7 @@ After each round the winner is evaluated. Winner is the team which first wins 10
 ## TO DO
 Exit round when time runs out.
 
-## DATA SCIENCE & AI
+## TO DO 2 DATA SCIENCE & AI
 - Collect data based on  names,  time when the game is played,  time spent on guessing a specific word etc.
 
 - Create AI to make different lists of words, based on word difficulty level.
