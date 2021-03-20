@@ -4,8 +4,15 @@ Brida app is a digital version of the popular board game party alias.
 
 ## Python and Kivy
 Python version used: Python 3.6.9
-
 Kivy version used: Kivy 2.0.0
+
+# Instructions - before launching app
+
+## same folder for py and kv files
+In order to be able to launch the app you have to download the python file (brida.py), kivy (birda.kv) and list of word names file (word_lst_en.txt) file and put them in the same folder.
+
+## copy full full path
+open the brida.py and replace the full path ("C:\\Users\\AT\\Documents\\git_projects\\brida-app\\brida.py") with your full path of the word_lst_en.txt
 
 ## Game concept
 ### Players
