@@ -191,7 +191,7 @@ class GameplayWindow(Screen):
             self.circle_counter +=1
     def some_func(self):
         script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
-        rel_path = "word_lst_bs.txt"
+        rel_path = "C:\\Users\\AT\\Documents\\git_projects\\brida-app\\brida.py"
         abs_file_path = os.path.join(script_dir, rel_path)
 
         with open(abs_file_path, 'r') as txt_file:
