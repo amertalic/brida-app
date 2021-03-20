@@ -62,7 +62,7 @@ class InpPlayerWindow(Screen):
         if (self.ids.input_pl1.text and self.ids.input_pl2.text and self.ids.input_pl3.text and self.ids.input_pl4.text) != '':
             self.inp_player_list = [self.ids.input_pl1.text, self.ids.input_pl2.text, self.ids.input_pl3.text, self.ids.input_pl4.text]
             self.four_player_status = True
-            self.ids.pl_inp_error_lbl.text = ' 4 players ready\nPress paly to start playing'
+            self.ids.pl_inp_error_lbl.text = ' 4 players ready\nPress palay to start playing'
         else:
             self.four_player_status = False
             self.ids.pl_inp_error_lbl.text = 'Minimal 4 players required!'
@@ -191,7 +191,7 @@ class GameplayWindow(Screen):
             self.circle_counter +=1
     def some_func(self):
         script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
-        rel_path = "C:\\Users\\AT\\Documents\\git_projects\\brida-app\\brida.py"
+        rel_path = "word_lst_en.txt"
         abs_file_path = os.path.join(script_dir, rel_path)
 
         with open(abs_file_path, 'r') as txt_file:
