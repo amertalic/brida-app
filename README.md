@@ -7,6 +7,14 @@ Python version used: Python 3.6.9
 
 Kivy version used: Kivy 2.0.0
 
+# Launching app instructions
+
+## same folder for py and kv files
+In order to be able to launch the app you have to download the python file (brida.py), kivy (birda.kv) and list of word names file (word_lst_en.txt) file and put them in the same folder.
+
+## copy full full path
+open the brida.py and replace the full path ("C:\\Users\\AT\\Documents\\git_projects\\brida-app\\brida.py") with your full path of the word_lst_en.txt
+
 ## Game concept
 ### Players
 Minimum of 4 players required, supports up to 10 players. Number of players in a team must be even, which means that up to 5 teams of 2 players can play the game.
@@ -28,4 +36,3 @@ Exit round when time runs out.
 - Create AI to make different lists of words, based on word difficulty level.
 
 # please contact me if you want to collaborate
-
