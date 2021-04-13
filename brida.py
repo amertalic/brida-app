@@ -233,8 +233,8 @@ class GameplayWindow(Screen):
         else:
             self.circle_counter += 1
 
-    # some function
-    def some_func(self):
+    # opens a txt file, reads the words and assigns them to a list
+    def load_word_list(self):
         script_dir = os.path.dirname(__file__)  # <-- absolute dir the script is in
         rel_path = "word_lst_en.txt"
         abs_file_path = os.path.join(script_dir, rel_path)
@@ -298,26 +298,29 @@ class GameplayWindow(Screen):
             self.ids.but_1.background_color = 1.0, 0.0, 0.0, 1.0
             self.ids.but_1.text = 'No Jokers\nLEFT'
 
-    # resets all values to 0
+    # resets teams scores to 0
     def point_counter(self):
         if self.func_link == 'nw':
             self.team_points[self.player_list[0]] -= 1
         else:
             self.team_points[self.player_list[0]] += 1
 
-    # dispalys points, jokers and round
+    # displays points, jokers and round
     def display_points(self):
         self.ids.label_points.text = (
                 'Round: ' + str(self.r_counter) + '\n' + self.player_list[0] + ':\nPoints: ' + str(
             self.team_points[self.player_list[0]]) + '\nJokers: ' + str(self.team_jokers[self.player_list[0]]))
         # str(self.team_points[self.player_list[0]])
 
-    # Update players on label display
+    # Updates players on display label
     def display_players(self):
         self.ids.label_1.text = (self.player_list[1][0])
         self.ids.label_2.text = (self.player_list[1][1])
 
-    # Button
+    # corresponds to the but_3 button
+    # updates display label
+    # calls 6 functions:
+    # move players, grabs a player list, displays players, displays points, counts a round/circle
     def st_round(self):
         if self.circle_counter > 0:
             self.move_players()
@@ -327,26 +330,30 @@ class GameplayWindow(Screen):
         self.ids.label_3.text = 'press start to start\ntimer & get word'
         self.display_points()
         self.full_circle_counter()
-        self.some_func()
+        self.load_word_list()
 
+    # responds to the but_3
+    # pics a random word, displays scores and starts the countdown
     def st_play_round(self):
         self.ids.label_3.text = self.random_word()
         self.display_points()
         self.start_timer()
 
-    sec60 = 10
+        # playing seconds
+
     number = NumericProperty(10)
 
-    # To increase the time / count
+    # increments timer by one second
     def increment_time(self, interval):
         self.number += -1
 
-    # To start the count
+    # starts the countdown
     def start_timer(self):
         Clock.unschedule(self.increment_time)
         Clock.schedule_interval(self.increment_time, 1)
-        # To stop the count / time
 
+    # Stops the countdown
+    # TODO automaticall stop the timer
     def stop_timer(self):
         Clock.unschedule(self.increment_time)
 
@@ -355,6 +362,7 @@ class WindowManager(ScreenManager):
     pass
 
 
+# lods the kivy file
 kv = Builder.load_file('brida.kv')
 
 
